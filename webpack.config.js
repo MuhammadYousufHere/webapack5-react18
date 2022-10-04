@@ -7,7 +7,7 @@ module.exports = {
     mode: 'development',
     target: 'web',
     devtool: 'source-map',
-    entry: path.join(__dirname, '/src/index.js'),
+    entry: path.resolve(__dirname, 'src/index.js'),
     devServer: {
         port: 3000,
         open: true,
@@ -25,6 +25,9 @@ module.exports = {
         chunkFilename: '[id].[contenthash].js',
         path: path.resolve(__dirname, '/build'),
         assetModuleFilename: 'assets/images/[name][ext]',
+    },
+    optimization: {
+        splitChunks: { chunks: 'all' },
     },
     module: {
         rules: [
